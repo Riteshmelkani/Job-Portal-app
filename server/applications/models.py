@@ -1,3 +1,24 @@
 from django.db import models
+from django.conf import settings
+from jobs.models import Job
 
-# Create your models here.
+class Application(models.Model):
+
+    job = models.ForeignKey(
+        Job,
+        on_delete=models.CASCADE
+    )
+
+    applicant = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
+    resume_link = models.URLField()
+
+    applied_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f"{self.applicant.username} - {self.job.title}"
