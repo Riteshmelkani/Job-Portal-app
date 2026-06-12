@@ -7,6 +7,7 @@ function Navbar() {
 
       <div className="nav-links">
         <Link to="/">Jobs</Link>
+        <Link to="/post-job">Post Job</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
         <Link to="/applications">Applications</Link>

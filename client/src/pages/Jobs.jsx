@@ -19,6 +19,21 @@ function Jobs() {
     }
   };
 
+  const handleApply = async (jobId) => {
+    try {
+      await API.post("/applications/", {
+        job: jobId,
+        applicant: 1,
+        resume_link: "https://github.com/Riteshmelkani",
+      });
+
+      alert("Applied Successfully!");
+    } catch (error) {
+      console.error(error);
+      alert("Application Failed");
+    }
+  };
+
   const filteredJobs = jobs.filter(
     (job) =>
       job.title.toLowerCase().includes(search.toLowerCase()) &&
@@ -61,6 +76,12 @@ function Jobs() {
             </p>
 
             <p>{job.description}</p>
+
+            <button
+              onClick={() => handleApply(job.id)}
+            >
+              Apply Now
+            </button>
           </div>
         ))
       ) : (

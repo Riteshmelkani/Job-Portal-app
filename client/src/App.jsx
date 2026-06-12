@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import PostJob from "./pages/PostJob";
 
 import Jobs from "./pages/Jobs";
 import Login from "./pages/Login";
@@ -14,6 +15,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Jobs />} />
+        <Route path="/post-job" element={<PostJob />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/applications" element={<MyApplications />} />
